@@ -29,11 +29,11 @@ public class UniverseTest {
         char[][] worldMapArr = {{'.', 'O'}, {'O', '.'}};
 
         Universe universe = new Universe(worldMapArr);
-        ArrayList<ArrayList<String>> worldMapResult = universe.getWorldMapArr();
+        char[][] worldMapResult = universe.getWorldMapArr();
 
-        assertEquals(Cell.deadSymbol, worldMapResult.get(0).get(0));
-        assertEquals(Cell.aliveSymbol, worldMapResult.get(0).get(1));
-        assertEquals(Cell.aliveSymbol, worldMapResult.get(1).get(0));
-        assertEquals(Cell.deadSymbol, worldMapResult.get(1).get(1));
+        assertEquals(Cell.deadSymbol, worldMapResult[0][0]);
+        assertEquals(Cell.aliveSymbol, worldMapResult[0][1]);
+        assertEquals(Cell.aliveSymbol, worldMapResult[1][0]);
+        assertEquals(Cell.deadSymbol, worldMapResult[1][1]);
     }
 }
