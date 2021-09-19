@@ -48,4 +48,19 @@ public class UniverseTest {
         Point coordinate = new Point(-1,-1);
         assertEquals(null, universe.getWorldMapCell(coordinate));
     }
+
+    @Test
+    public void nextCycleTest() {
+        char[][] worldMapArr = {
+                {'.', 'O', '.'},
+                {'.', 'O', '.'},
+                {'.', 'O', '.'}
+        };
+        Universe universe = new Universe(worldMapArr);
+        universe.nextCycle();
+
+        assertEquals(true, universe.getWorldMapCell(new Point(0, 1)).isAlive);
+        assertEquals(true, universe.getWorldMapCell(new Point(1, 1)).isAlive);
+        assertEquals(true, universe.getWorldMapCell(new Point(2, 1)).isAlive);
+    }
 }

@@ -28,6 +28,14 @@ public class Universe {
         return this.worldMap.getOrDefault(coordinate, null);
     }
 
+    public void nextCycle() {
+        for(Map.Entry<Point, Cell> cellEntry: worldMap.entrySet()) {
+            if (cellEntry.getValue().isAlive) {
+                applyRules(cellEntry.getValue());
+            }
+        }
+    }
+
     private void initWorldMap(char[][] worldMapArr) {
         for(int y = 0; y < worldMapArr.length; y++) {
             for(int x = 0; x < worldMapArr[y].length; x++) {
@@ -41,5 +49,13 @@ public class Universe {
 
     private boolean isCoordinateValid(Point coor) {
         return (coor.x >= 0 && coor.x < maxArrMapSize && coor.y >= 0 && coor.y < maxArrMapSize);
+    }
+
+    private void applyRules(Cell cell) {
+        int neighborCount = cell.countAliveNeighbors(this);
+        if (neighborCount < 2)
+            cell.setAlive(false);
+        else if (neighborCount == 2 || neighborCount == 3)
+            cell.setAlive(true);
     }
 }
