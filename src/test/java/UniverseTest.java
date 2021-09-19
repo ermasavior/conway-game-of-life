@@ -29,4 +29,14 @@ public class UniverseTest {
         assertEquals(Cell.aliveSymbol, worldMapResult[1][0]);
         assertEquals(Cell.deadSymbol, worldMapResult[1][1]);
     }
+
+    @Test
+    public void getWorldMapCellTest() {
+        char[][] worldMapArr = {{'.', 'O'}, {'O', '.'}};
+        Universe universe = new Universe(worldMapArr);
+
+        Point coordinate = new Point(0,0);
+        assertEquals(coordinate, universe.getWorldMapCell(coordinate).coordinate);
+        assertEquals(false, universe.getWorldMapCell(coordinate).isAlive);
+    }
 }

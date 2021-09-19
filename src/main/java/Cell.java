@@ -40,4 +40,8 @@ public class Cell {
 
         return neighborCoors;
     }
+
+    public int countAliveNeighbors(Universe universe) {
+        return 1; //universe.getWorldMapCell(this.coordinate);
+    }
 }

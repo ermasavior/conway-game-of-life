@@ -24,6 +24,10 @@ public class Universe {
         return worldMapArr;
     }
 
+    public Cell getWorldMapCell(Point coordinate) {
+        return this.worldMap.get(coordinate);
+    }
+
     private void initWorldMap(char[][] worldMapArr) {
         for(int y = 0; y < worldMapArr.length; y++) {
             for(int x = 0; x < worldMapArr[y].length; x++) {
