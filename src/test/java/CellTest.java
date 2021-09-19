@@ -8,21 +8,21 @@ public class CellTest {
     @Test
     public void initialize() {
         Point coordinate = new Point(1, 1);
-        boolean alive = false;
-        Cell cell = new Cell(coordinate, alive);
+        boolean isAlive = false;
+        Cell cell = new Cell(coordinate, isAlive);
 
         assertEquals(cell.coordinate, coordinate);
-        assertEquals(cell.alive, alive);
+        assertEquals(cell.isAlive, isAlive);
     }
 
     @Test
     public void setAliveTest() {
         Point coordinate = new Point(1, 1);
-        boolean alive = false;
-        Cell cell = new Cell(coordinate, alive);
+        boolean isAlive = false;
+        Cell cell = new Cell(coordinate, isAlive);
 
-        boolean newAlive = true;
-        cell.setAlive(newAlive);
-        assertEquals(cell.alive, newAlive);
+        boolean newIsAlive = true;
+        cell.setAlive(newIsAlive);
+        assertEquals(cell.isAlive, newIsAlive);
     }
 }

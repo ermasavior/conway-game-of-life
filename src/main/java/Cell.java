@@ -3,14 +3,14 @@ import java.util.ArrayList;
 
 public class Cell {
     public Point coordinate;
-    public boolean alive;
+    public boolean isAlive;
 
-    public Cell(Point coordinate, boolean alive) {
+    public Cell(Point coordinate, boolean isAlive) {
         this.coordinate = coordinate;
-        this.alive = alive;
+        this.isAlive = isAlive;
     }
 
-    public void setAlive(boolean alive) {
-        this.alive = alive;
+    public void setAlive(boolean isAlive) {
+        this.isAlive = isAlive;
     }
 }

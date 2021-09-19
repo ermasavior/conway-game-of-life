@@ -18,10 +18,10 @@ public class UniverseTest {
 
         Universe universe = new Universe(worldMapArr);
         assertEquals(universe.worldMap.size(), 4);
-        assertEquals(universe.worldMap.get(new Point(0,0)).alive, false);
-        assertEquals(universe.worldMap.get(new Point(0,1)).alive, true);
-        assertEquals(universe.worldMap.get(new Point(1,0)).alive, true);
-        assertEquals(universe.worldMap.get(new Point(1,1)).alive, false);
+        assertEquals(universe.worldMap.get(new Point(0,0)).isAlive, false);
+        assertEquals(universe.worldMap.get(new Point(0,1)).isAlive, true);
+        assertEquals(universe.worldMap.get(new Point(1,0)).isAlive, true);
+        assertEquals(universe.worldMap.get(new Point(1,1)).isAlive, false);
 
     }
 }
