@@ -29,11 +29,12 @@ public class Universe {
     }
 
     public void nextCycle() {
+        Map<Point, Cell> newCycleMap = new HashMap<>();
         for(Map.Entry<Point, Cell> cellEntry: worldMap.entrySet()) {
-            if (cellEntry.getValue().isAlive) {
-                applyRules(cellEntry.getValue());
-            }
+            Cell newCell = applyRules(cellEntry.getValue());
+            newCycleMap.put(cellEntry.getKey(), newCell);
         }
+        this.worldMap = newCycleMap;
     }
 
     private void initWorldMap(char[][] worldMapArr) {
@@ -51,11 +52,21 @@ public class Universe {
         return (coor.x >= 0 && coor.x < maxArrMapSize && coor.y >= 0 && coor.y < maxArrMapSize);
     }
 
-    private void applyRules(Cell cell) {
+    private Cell applyRules(Cell cell) {
         int neighborCount = cell.countAliveNeighbors(this);
-        if (neighborCount < 2)
-            cell.setAlive(false);
-        else if (neighborCount == 2 || neighborCount == 3)
-            cell.setAlive(true);
+        boolean isAlive;
+        if (cell.isAlive) {
+            if (neighborCount < 2)
+                isAlive = false;
+            else if (neighborCount == 2 || neighborCount == 3)
+                isAlive = true;
+            else
+                isAlive = false;
+        } else if (neighborCount == 3)
+                isAlive = true;
+        else
+            isAlive = false;
+
+        return new Cell(cell.coordinate, isAlive);
     }
 }
