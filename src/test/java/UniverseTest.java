@@ -12,9 +12,7 @@ public class UniverseTest {
         // World Map
         String row1 = ".O";
         String row2 = "O.";
-        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<>();
-        worldMapArr.add(new ArrayList<String>(Arrays.asList(row1.split(""))));
-        worldMapArr.add(new ArrayList<String>(Arrays.asList(row2.split(""))));
+        char[][] worldMapArr = {{'.', 'O'}, {'O', '.'}};
 
         Universe universe = new Universe(worldMapArr);
         assertEquals(universe.worldMap.size(), 4);
@@ -28,9 +26,7 @@ public class UniverseTest {
     public void getWorldMapArrTest() {
         String row1 = ".O";
         String row2 = "O.";
-        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<>();
-        worldMapArr.add(new ArrayList<String>(Arrays.asList(row1.split(""))));
-        worldMapArr.add(new ArrayList<String>(Arrays.asList(row2.split(""))));
+        char[][] worldMapArr = {{'.', 'O'}, {'O', '.'}};
 
         Universe universe = new Universe(worldMapArr);
         ArrayList<ArrayList<String>> worldMapResult = universe.getWorldMapArr();

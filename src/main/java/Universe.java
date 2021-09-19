@@ -2,39 +2,38 @@ import java.awt.*;
 import java.util.*;
 
 public class Universe {
-    private static String aliveSymbol = "O";
-    private int maxArrMapSize = 1;
+    private int maxArrMapSize = 2;
     public Map<Point, Cell> worldMap = new HashMap<Point, Cell>();
 
-    public Universe(ArrayList<ArrayList<String>> worldMapArr) {
+    public Universe(char[][] worldMapArr) {
         initWorldMap(worldMapArr);
     }
 
     public ArrayList<ArrayList<String>> getWorldMapArr() {
-        ArrayList<String> emptyRow = new ArrayList<>(Collections.nCopies(maxArrMapSize, Cell.deadSymbol));
-        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<>(Collections.nCopies(maxArrMapSize, emptyRow));
-
-        for (Map.Entry<Point, Cell> cellEntry: worldMap.entrySet()) {
-            Point coor = cellEntry.getKey();
-            System.out.println(coor);
-            System.out.println(cellEntry.getValue().getIsAliveSymbol());
-
-            if (isCoordinateValid(coor)) {
-                worldMapArr.get(coor.x).set(coor.y, worldMap.get(coor).getIsAliveSymbol());
-            }
-        }
-        System.out.println(worldMapArr);
+        ArrayList<String> mapRow = new ArrayList<>(Collections.nCopies(maxArrMapSize, "xxx"));
+        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<>(Collections.nCopies(maxArrMapSize, mapRow));
+//
+//        for (Map.Entry<Point, Cell> cellEntry: worldMap.entrySet()) {
+//            Point coor = cellEntry.getKey();
+//            System.out.println(coor);
+//
+//            if (isCoordinateValid(coor)) {
+//                worldMapArr.get(coor.y).set(coor.x, cellEntry.getValue().getIsAliveSymbol());
+//            }
+//        }
+//        worldMapArr.get(0).set(0, "zz");
+//        System.out.println(worldMapArr);
+//        worldMapArr.set(1, "aduh");
+//        System.out.println(worldMapArr);
 
         return worldMapArr;
     }
 
-    private void initWorldMap(ArrayList<ArrayList<String>> worldMapArr) {
-        for(int y = 0; y < worldMapArr.size(); y++) {
-            ArrayList<String> row = worldMapArr.get(y);
-
-            for(int x = 0; x < row.size(); x++) {
+    private void initWorldMap(char[][] worldMapArr) {
+        for(int y = 0; y < worldMapArr.length; y++) {
+            for(int x = 0; x < worldMapArr[y].length; x++) {
                 Point coor = new Point(x, y);
-                boolean isAlive = row.get(x).equals(aliveSymbol);
+                boolean isAlive = worldMapArr[y][x] == Cell.aliveSymbol;
 
                 worldMap.put(coor, new Cell(coor, isAlive));
             }

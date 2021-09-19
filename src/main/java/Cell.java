@@ -1,8 +1,8 @@
 import java.awt.*;
 
 public class Cell {
-    public static String aliveSymbol = "O";
-    public static String deadSymbol = ".";
+    public static char aliveSymbol = 'O';
+    public static char deadSymbol = '.';
 
     public Point coordinate;
     public boolean isAlive;
@@ -16,7 +16,7 @@ public class Cell {
         this.isAlive = isAlive;
     }
 
-    public String getIsAliveSymbol() {
+    public char getIsAliveSymbol() {
         if (this.isAlive) {
             return aliveSymbol;
         } else {
