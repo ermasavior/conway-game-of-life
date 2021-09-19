@@ -1,8 +1,5 @@
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class Universe {
     private static String aliveSymbol = "O";
@@ -13,10 +10,12 @@ public class Universe {
     }
 
     public ArrayList<ArrayList<String>> getWorldMapArr() {
-        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<>(50);
+        ArrayList<String> emptyRow = new ArrayList<>(Collections.nCopies(2, "."));
+        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<ArrayList<String>>(Collections.nCopies(2, emptyRow));
+
         for (Map.Entry<Point, Cell> cellEntry: worldMap.entrySet()) {
             Point coor = cellEntry.getKey();
-            worldMapArr.get(coor.y).set(coor.x, worldMapArr.get(coor.y).get(coor.x));
+            worldMapArr.get(coor.y).set(coor.x, worldMap.get(coor));
         }
 
         return worldMapArr;
