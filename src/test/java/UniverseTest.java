@@ -35,6 +35,9 @@ public class UniverseTest {
         Universe universe = new Universe(worldMapArr);
         ArrayList<ArrayList<String>> worldMapResult = universe.getWorldMapArr();
 
-        assertEquals(worldMapArr, worldMapResult);
+        assertEquals(Cell.deadSymbol, worldMapResult.get(0).get(0));
+        assertEquals(Cell.aliveSymbol, worldMapResult.get(0).get(1));
+        assertEquals(Cell.aliveSymbol, worldMapResult.get(1).get(0));
+        assertEquals(Cell.deadSymbol, worldMapResult.get(1).get(1));
     }
 }

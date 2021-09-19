@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Universe {
     private static String aliveSymbol = "O";
+    private int maxArrMapSize = 2;
     public Map<Point, Cell> worldMap = new HashMap<Point, Cell>();
 
     public Universe(ArrayList<ArrayList<String>> worldMapArr) {
@@ -10,13 +11,16 @@ public class Universe {
     }
 
     public ArrayList<ArrayList<String>> getWorldMapArr() {
-        ArrayList<String> emptyRow = new ArrayList<>(Collections.nCopies(2, "."));
-        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<ArrayList<String>>(Collections.nCopies(2, emptyRow));
+        ArrayList<String> emptyRow = new ArrayList<>(Collections.nCopies(maxArrMapSize, "."));
+        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<ArrayList<String>>(Collections.nCopies(maxArrMapSize, emptyRow));
 
         for (Map.Entry<Point, Cell> cellEntry: worldMap.entrySet()) {
             Point coor = cellEntry.getKey();
-            worldMapArr.get(coor.y).set(coor.x, ".");
+            System.out.println(coor);
+            System.out.println(cellEntry.getValue().getIsAliveSymbol());
+            worldMapArr.get(coor.x).set(coor.y, worldMap.get(coor).getIsAliveSymbol());
         }
+        System.out.println(worldMapArr);
 
         return worldMapArr;
     }
