@@ -52,4 +52,14 @@ public class CellTest {
             assertEquals(expectedCoors.get(0), neighborCoors.get(0));
         }
     }
+
+    @Test
+    public void countAliveNeighborsTest() {
+        Cell cell = new Cell(new Point(1, 0), true);
+
+        char[][] worldMapArr = {{'O', 'O'}, {'O', '.'}};
+        Universe universe = new Universe(worldMapArr);
+
+        assertEquals(2, cell.countAliveNeighbors(universe));
+    }
 }

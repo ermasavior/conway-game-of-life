@@ -25,7 +25,7 @@ public class Universe {
     }
 
     public Cell getWorldMapCell(Point coordinate) {
-        return this.worldMap.get(coordinate);
+        return this.worldMap.getOrDefault(coordinate, null);
     }
 
     private void initWorldMap(char[][] worldMapArr) {

@@ -31,12 +31,21 @@ public class UniverseTest {
     }
 
     @Test
-    public void getWorldMapCellTest() {
+    public void whenCoordinateIsValid_getWorldMapCellTest() {
         char[][] worldMapArr = {{'.', 'O'}, {'O', '.'}};
         Universe universe = new Universe(worldMapArr);
 
         Point coordinate = new Point(0,0);
         assertEquals(coordinate, universe.getWorldMapCell(coordinate).coordinate);
         assertEquals(false, universe.getWorldMapCell(coordinate).isAlive);
+    }
+
+    @Test
+    public void whenCoordinateIsInValid_getWorldMapCellTest() {
+        char[][] worldMapArr = {{'.', 'O'}, {'O', '.'}};
+        Universe universe = new Universe(worldMapArr);
+
+        Point coordinate = new Point(-1,-1);
+        assertEquals(null, universe.getWorldMapCell(coordinate));
     }
 }

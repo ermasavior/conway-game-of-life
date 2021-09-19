@@ -42,6 +42,14 @@ public class Cell {
     }
 
     public int countAliveNeighbors(Universe universe) {
-        return 1; //universe.getWorldMapCell(this.coordinate);
+        ArrayList<Point> neighborCoors = this.getNeighborCoordinates();
+
+        int count = 0;
+        for(Point coor: neighborCoors) {
+            if (universe.getWorldMapCell(coor) != null)
+                count++;
+        }
+
+        return count;
     }
 }
