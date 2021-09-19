@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Universe {
@@ -12,7 +13,12 @@ public class Universe {
     }
 
     public ArrayList<ArrayList<String>> getWorldMapArr() {
-        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<>();
+        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<>(50);
+        for (Map.Entry<Point, Cell> cellEntry: worldMap.entrySet()) {
+            Point coor = cellEntry.getKey();
+            worldMapArr.get(coor.y).set(coor.x, worldMapArr.get(coor.y).get(coor.x));
+        }
+
         return worldMapArr;
     }
 
