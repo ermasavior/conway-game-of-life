@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.*;
 
 public class Universe {
-    private int maxArrMapSize = 50;
+    private int maxArrMapSize = 10;
     public Map<Point, Cell> worldMap = new HashMap<Point, Cell>();
 
     public Universe(char[][] worldMapArr) {

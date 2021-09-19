@@ -13,4 +13,13 @@ public class GameTest {
 
         assertEquals(4, game.universe.worldMap.size());
     }
+
+    @Test
+    public void printUniverseTest() {
+        String[] rawMap = {"O.", ".O"};
+        Game game = new Game();
+        game.loadUniverse(rawMap);
+
+        game.printUniverse();
+    }
 }

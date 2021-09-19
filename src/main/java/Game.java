@@ -11,4 +11,10 @@ public class Game {
 
         this.universe = new Universe(worldMapArr);
     }
+
+    public void printUniverse() {
+        char[][] worldMapArr = this.universe.getWorldMapArr();
+        for(char[] mapRow: worldMapArr)
+            System.out.println(mapRow);
+    }
 }
