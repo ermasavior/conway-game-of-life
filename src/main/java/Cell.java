@@ -46,7 +46,7 @@ public class Cell {
 
         int count = 0;
         for(Point coor: neighborCoors) {
-            if (universe.getWorldMapCell(coor) != null)
+            if (universe.getWorldMapCell(coor) != null && universe.getWorldMapCell(coor).isAlive)
                 count++;
         }
 
