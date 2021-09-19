@@ -14,4 +14,15 @@ public class CellTest {
         assertEquals(cell.coordinate, coordinate);
         assertEquals(cell.alive, alive);
     }
+
+    @Test
+    public void setAliveTest() {
+        Point coordinate = new Point(1, 1);
+        boolean alive = false;
+        Cell cell = new Cell(coordinate, alive);
+
+        boolean newAlive = true;
+        cell.setAlive(newAlive);
+        assertEquals(cell.alive, newAlive);
+    }
 }
