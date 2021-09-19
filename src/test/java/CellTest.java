@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class CellTest {
     @Test
@@ -30,5 +31,25 @@ public class CellTest {
 
         cell.setAlive(true);
         assertEquals(Cell.aliveSymbol, cell.getIsAliveSymbol());
+    }
+
+    @Test
+    public void getNeighborCoordinates() {
+        Cell cell = new Cell(new Point(1, 1), true);
+        ArrayList<Point> neighborCoors = cell.getNeighborCoordinates();
+
+        ArrayList<Point> expectedCoors = new ArrayList<>();
+        expectedCoors.add(new Point(0, 0));
+        expectedCoors.add(new Point(0, 1));
+        expectedCoors.add(new Point(0, 2));
+        expectedCoors.add(new Point(1, 0));
+        expectedCoors.add(new Point(1, 2));
+        expectedCoors.add(new Point(2, 0));
+        expectedCoors.add(new Point(2, 1));
+        expectedCoors.add(new Point(2, 2));
+
+        for(int i = 0; i < 8; i++) {
+            assertEquals(expectedCoors.get(0), neighborCoors.get(0));
+        }
     }
 }
