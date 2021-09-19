@@ -11,6 +11,11 @@ public class Universe {
         initWorldMap(worldMapArr);
     }
 
+    public ArrayList<ArrayList<String>> getWorldMapArr() {
+        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<>();
+        return worldMapArr;
+    }
+
     private void initWorldMap(ArrayList<ArrayList<String>> worldMapArr) {
         for(int y = 0; y < worldMapArr.size(); y++) {
             ArrayList<String> row = worldMapArr.get(y);

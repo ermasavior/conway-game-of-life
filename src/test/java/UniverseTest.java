@@ -22,6 +22,19 @@ public class UniverseTest {
         assertEquals(universe.worldMap.get(new Point(0,1)).isAlive, true);
         assertEquals(universe.worldMap.get(new Point(1,0)).isAlive, true);
         assertEquals(universe.worldMap.get(new Point(1,1)).isAlive, false);
+    }
 
+    @Test
+    public void getWorldMapArrTest() {
+        String row1 = ".O";
+        String row2 = "O.";
+        ArrayList<ArrayList<String>> worldMapArr = new ArrayList<>();
+        worldMapArr.add(new ArrayList<String>(Arrays.asList(row1.split(""))));
+        worldMapArr.add(new ArrayList<String>(Arrays.asList(row2.split(""))));
+
+        Universe universe = new Universe(worldMapArr);
+        ArrayList<ArrayList<String>> worldMapResult = universe.getWorldMapArr();
+
+        assertEquals(worldMapResult, worldMapArr);
     }
 }
