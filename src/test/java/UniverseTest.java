@@ -9,23 +9,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UniverseTest {
     @Test
     public void initialize() {
-        // World Map
-        String row1 = ".O";
-        String row2 = "O.";
         char[][] worldMapArr = {{'.', 'O'}, {'O', '.'}};
 
         Universe universe = new Universe(worldMapArr);
-        assertEquals(universe.worldMap.size(), 4);
-        assertEquals(universe.worldMap.get(new Point(0,0)).isAlive, false);
-        assertEquals(universe.worldMap.get(new Point(0,1)).isAlive, true);
-        assertEquals(universe.worldMap.get(new Point(1,0)).isAlive, true);
-        assertEquals(universe.worldMap.get(new Point(1,1)).isAlive, false);
+        assertEquals(4, universe.worldMap.size());
+        assertEquals(false, universe.worldMap.get(new Point(0,0)).isAlive);
+        assertEquals(true, universe.worldMap.get(new Point(0,1)).isAlive);
+        assertEquals(true, universe.worldMap.get(new Point(1,0)).isAlive);
+        assertEquals(false, universe.worldMap.get(new Point(1,1)).isAlive);
     }
 
     @Test
     public void getWorldMapArrTest() {
-        String row1 = ".O";
-        String row2 = "O.";
         char[][] worldMapArr = {{'.', 'O'}, {'O', '.'}};
 
         Universe universe = new Universe(worldMapArr);

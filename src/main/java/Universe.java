@@ -16,7 +16,6 @@ public class Universe {
 
         for (Map.Entry<Point, Cell> cellEntry: worldMap.entrySet()) {
             Point coor = cellEntry.getKey();
-
             if (isCoordinateValid(coor)) {
                 worldMapArr[coor.y][coor.x] = cellEntry.getValue().getIsAliveSymbol();
             }

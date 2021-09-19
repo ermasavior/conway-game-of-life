@@ -11,17 +11,16 @@ public class CellTest {
         boolean isAlive = false;
         Cell cell = new Cell(coordinate, isAlive);
 
-        assertEquals(cell.coordinate, coordinate);
-        assertEquals(cell.isAlive, isAlive);
+        assertEquals(coordinate, cell.coordinate);
+        assertEquals(isAlive, cell.isAlive);
     }
 
     @Test
     public void setAliveTest() {
         Cell cell = new Cell(new Point(1, 1), false);
 
-        boolean newIsAlive = true;
-        cell.setAlive(newIsAlive);
-        assertEquals(cell.isAlive, newIsAlive);
+        cell.setAlive(true);
+        assertEquals(true, cell.isAlive);
     }
 
     @Test
