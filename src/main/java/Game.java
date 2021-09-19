@@ -22,7 +22,6 @@ public class Game {
         for(;;) {
             printUniverse();
             universe.nextCycle();
-            System.out.flush();
         }
     }
 }
