@@ -15,7 +15,7 @@ public class Universe {
 
         for (Map.Entry<Point, Cell> cellEntry: worldMap.entrySet()) {
             Point coor = cellEntry.getKey();
-            worldMapArr.get(coor.y).set(coor.x, worldMap.get(coor));
+            worldMapArr.get(coor.y).set(coor.x, ".");
         }
 
         return worldMapArr;

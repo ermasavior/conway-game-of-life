@@ -1,7 +1,9 @@
 import java.awt.*;
-import java.util.ArrayList;
 
 public class Cell {
+    public static String aliveSymbol = "O";
+    public static String deadSymbol = ".";
+
     public Point coordinate;
     public boolean isAlive;
 
@@ -12,5 +14,13 @@ public class Cell {
 
     public void setAlive(boolean isAlive) {
         this.isAlive = isAlive;
+    }
+
+    public String getIsAliveSymbol() {
+        if (this.isAlive) {
+            return aliveSymbol;
+        } else {
+            return deadSymbol;
+        }
     }
 }

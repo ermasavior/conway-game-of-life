@@ -17,12 +17,19 @@ public class CellTest {
 
     @Test
     public void setAliveTest() {
-        Point coordinate = new Point(1, 1);
-        boolean isAlive = false;
-        Cell cell = new Cell(coordinate, isAlive);
+        Cell cell = new Cell(new Point(1, 1), false);
 
         boolean newIsAlive = true;
         cell.setAlive(newIsAlive);
         assertEquals(cell.isAlive, newIsAlive);
+    }
+
+    @Test
+    public void getIsAliveSymbol() {
+        Cell cell = new Cell(new Point(1, 1), false);
+        assertEquals(Cell.deadSymbol, cell.getIsAliveSymbol());
+
+        cell.setAlive(true);
+        assertEquals(Cell.aliveSymbol, cell.getIsAliveSymbol());
     }
 }
