@@ -13,10 +13,6 @@ public class Cell {
         this.isAlive = isAlive;
     }
 
-    public void setAlive(boolean isAlive) {
-        this.isAlive = isAlive;
-    }
-
     public char getIsAliveSymbol() {
         if (this.isAlive) {
             return aliveSymbol;

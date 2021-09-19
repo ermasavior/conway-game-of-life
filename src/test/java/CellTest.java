@@ -17,19 +17,11 @@ public class CellTest {
     }
 
     @Test
-    public void setAliveTest() {
-        Cell cell = new Cell(new Point(1, 1), false);
-
-        cell.setAlive(true);
-        assertEquals(true, cell.isAlive);
-    }
-
-    @Test
     public void getIsAliveSymbol() {
         Cell cell = new Cell(new Point(1, 1), false);
         assertEquals(Cell.deadSymbol, cell.getIsAliveSymbol());
 
-        cell.setAlive(true);
+        cell.isAlive = true;
         assertEquals(Cell.aliveSymbol, cell.getIsAliveSymbol());
     }
 
