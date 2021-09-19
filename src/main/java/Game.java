@@ -17,4 +17,12 @@ public class Game {
         for(char[] mapRow: worldMapArr)
             System.out.println(mapRow);
     }
+
+    public void start() {
+        for(;;) {
+            printUniverse();
+            universe.nextCycle();
+            System.out.flush();
+        }
+    }
 }
